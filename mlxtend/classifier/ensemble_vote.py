@@ -101,6 +101,8 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
         self.weights = weights
         self.verbose = verbose
         self.refit = refit
+        if not self.refit:
+            self.clfs_ = [clf for clf in self.clfs]
 
     def fit(self, X, y):
         """Learn weight coefficients from training data for each classifier.
@@ -190,8 +192,8 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
                                                 weights=self.weights)),
                                       axis=1,
                                       arr=predictions)
-
-        maj = self.le_.inverse_transform(maj)
+        if not self.refit:
+            maj = self.le_.inverse_transform(maj)
         return maj
 
     def predict_proba(self, X):

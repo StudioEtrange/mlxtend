@@ -73,7 +73,7 @@ python setup.py install
 The mlxtend version on PyPI may always be one step behind; you can install the latest development version from the GitHub repository by executing
 
 ```bash
-pip install git+git://github.com/rasbt/mlxtend.git#egg=mlxtend
+pip install git+git://github.com/studioetrange/mlxtend.git#egg=mlxtend
 ```
 
 Or, you can fork the GitHub repository from https://github.com/rasbt/mlxtend and install mlxtend from your local drive via
