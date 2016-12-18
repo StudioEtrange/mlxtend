@@ -192,7 +192,7 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
                                                 weights=self.weights)),
                                       axis=1,
                                       arr=predictions)
-        if not self.refit:
+        if self.refit:
             maj = self.le_.inverse_transform(maj)
         return maj
 
